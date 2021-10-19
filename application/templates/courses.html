@@ -28,6 +28,10 @@
                 <td>{{ course["credits"] }}</td>
                 <td>{{ course["term"] }}</td>
                 <td>
+                    <form action="{{ url_for('enrollment')}}" method="GET">
+                        <input type="hidden" name="courseID" value="{{ course['courseID'] }}">
+                        <input type="hidden" name="title" value="{{ course['title'] }}">
+                        <input type="hidden" name="term" value="{{ course['term'] }}">
                     <button>Enroll</button>
                 </td>
             </tr>
