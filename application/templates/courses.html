@@ -1,6 +1,6 @@
-    {% extends "layout.html" %}
+{% extends "layout.html" %}
     
-    {% block content %}
+{% block content %}
     <h1>Course Offerings</h1>
 
     <!--  Display the Term and Year here --->
@@ -28,7 +28,7 @@
                 <td>{{ course["credits"] }}</td>
                 <td>{{ course["term"] }}</td>
                 <td>
-                    <form action="{{ url_for('enrollment')}}" method="GET">
+                    <form action="{{ url_for('courses')}}" method="GET">
                         <input type="hidden" name="courseID" value="{{ course['courseID'] }}">
                         <input type="hidden" name="title" value="{{ course['title'] }}">
                         <input type="hidden" name="term" value="{{ course['term'] }}">
