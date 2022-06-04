@@ -1,5 +1,8 @@
+from unittest.util import _MAX_LENGTH
 from application import app
+from application import db
 from flask import render_template
+
 
 
 @app.route("/")
@@ -23,3 +26,18 @@ def register():
 @app.route("/login")
 def login():
     return render_template("login.html", login = True)
+
+
+class User(db.Document):
+    user_id     = db.IntField(unique=True)
+    first_name  = db.StringField(max_length=50)
+    last_name   = db.StringField(max_length=50)
+    email       = db.StringField(max_length=30)
+    password    = db.StringField(max_length=30)
+
+@app.route("/user")
+def user():
+    # User(user_id=1, first_name="John", last_name="Smith", email="a@b.hu", password="123").save()
+    # User(user_id=2, first_name="Jane", last_name="Smith", email="asdasd@ds.hu", password="123").save()
+    users = User.objects.all()
+    return render_template("user.html", users=users)
