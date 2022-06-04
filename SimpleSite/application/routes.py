@@ -1,6 +1,5 @@
-from unittest.util import _MAX_LENGTH
-from application import app
-from application import db
+from SimpleSite.application import app
+from SimpleSite.application import db
 from flask import render_template
 
 
